@@ -1,0 +1,99 @@
+diff -aur Pods/ZBarSDK.orig/iphone/ZBarImageScanner.m Pods/ZBarSDK/iphone/ZBarImageScanner.m
+--- Pods/ZBarSDK.orig/iphone/ZBarImageScanner.m	2015-11-24 20:13:01.000000000 +1000
++++ Pods/ZBarSDK/iphone/ZBarImageScanner.m	2015-11-24 15:01:47.000000000 +1000
+@@ -26,6 +26,7 @@
+ 
+ @implementation ZBarImageScanner
+ 
++@synthesize pauseScan;
+ @dynamic enableCache, results;
+ 
+ - (id) init
+@@ -33,6 +34,7 @@
+     if(self = [super init]) {
+         scanner = zbar_image_scanner_create();
+     }
++    self.pauseScan = NO;
+     return(self);
+ }
+ 
+@@ -79,7 +81,17 @@
+ 
+ - (NSInteger) scanImage: (ZBarImage*) image
+ {
+-    return(zbar_scan_image(scanner, image.zbarImage));
++    @synchronized(self) {
++        if (self.pauseScan) return 0;
++        
++        @try {
++            return zbar_scan_image(scanner, image.zbarImage);
++        }
++        @catch (NSException *ex) {
++            printf("Exception caught\n");
++         }
++    }
++    return 0;
+ }
+ 
+ @end
+diff -aur Pods/ZBarSDK.orig/iphone/ZBarReaderView.m Pods/ZBarSDK/iphone/ZBarReaderView.m
+--- Pods/ZBarSDK.orig/iphone/ZBarReaderView.m	2015-11-24 20:13:01.000000000 +1000
++++ Pods/ZBarSDK/iphone/ZBarReaderView.m	2015-11-24 15:23:19.000000000 +1000
+@@ -575,22 +575,31 @@
+ {
+     if(!tracksSymbols)
+         return;
++    
++    @synchronized(self.scanner) {
++        int n = syms.count;
++        assert(n);
++        if(!n)
++            return;
+ 
+-    int n = syms.count;
+-    assert(n);
+-    if(!n)
+-        return;
+-
+-    ZBarSymbol *sym = nil;
+-    for(ZBarSymbol *s in syms)
+-        if(!sym || s.type == ZBAR_QRCODE || s.quality > sym.quality)
+-            sym = s;
+-    assert(sym);
+-    if(!sym)
+-        return;
++        @try {
++            ZBarSymbol *sym = nil;
++            for(ZBarSymbol *s in syms)
++                if(!sym || s.type == ZBAR_QRCODE || s.quality > sym.quality)
++                    sym = s;
+ 
+-    [self updateTracking: tracking
+-          withSymbol: sym];
++            assert(sym);
++            if(!sym)
++                return;
++            
++            
++            [self updateTracking: tracking
++                      withSymbol: sym];
++        }
++        @catch (NSException *ex) {
++            NSLog(@"Mutated symbol set during tracking");
++        }
++    }
+ }
+ 
+ @end
+diff -aur Pods/ZBarSDK.orig/iphone/include/ZBarSDK/ZBarImageScanner.h Pods/ZBarSDK/iphone/include/ZBarSDK/ZBarImageScanner.h
+--- Pods/ZBarSDK.orig/iphone/include/ZBarSDK/ZBarImageScanner.h	2015-11-24 20:13:01.000000000 +1000
++++ Pods/ZBarSDK/iphone/include/ZBarSDK/ZBarImageScanner.h	2015-11-24 20:27:01.000000000 +1000
+@@ -36,6 +36,8 @@
+     zbar_image_scanner_t *scanner;
+ }
+ 
++#define ZBAR_IS_PAUSIBLE
++@property (nonatomic) BOOL pauseScan;
+ @property (nonatomic) BOOL enableCache;
+ @property (readonly, nonatomic) ZBarSymbolSet *results;
+ 

@@ -19,7 +19,10 @@ import UIKit
     
     @IBAction func ScannerToggled(sender: UISwitch) {
         parent.capturing = sender.on
-        parent.scanner.pauseScan = !sender.on
+        #if ZBAR_PAUSIBLE
+            parent.scanner.pauseScan = !sender.on
+        #endif
+        
         if (sender.on) {
             LightToggled(LightButton)
         } else {

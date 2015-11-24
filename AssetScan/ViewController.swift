@@ -78,6 +78,11 @@ class ViewController: ZBarReaderViewController, ZBarReaderDelegate {
         
         self.showsZBarControls = false
         self.readerView.showsFPS = true
+        #if ZBAR_PAUSIBLE
+            self.readerView.tracksSymbols = true
+        #else
+            self.readerView.tracksSymbols = false
+        #endif
         self.readerView.trackingColor = UIColor.redColor()
         self.readerView.allowsPinchZoom = true
         self.readerView.maxZoom = 8
@@ -93,20 +98,22 @@ class ViewController: ZBarReaderViewController, ZBarReaderDelegate {
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        if (!capturing || self.scanner.pauseScan) {
+        if (!capturing) {
             return
         }
-
+        
+#if ZBAR_PAUSIBLE
+        if (self.scanner.pauseScan) {
+            return
+        }
+#endif
+        
         objc_sync_enter(self.scanner);
             let results: ZBarSymbolSet = info[ZBarReaderControllerResults] as! ZBarSymbolSet
-        //    let r2: ZBarSymbolSet = ZBarSymbolSet(symbolSet: results.zbarSymbolSet)
-        
-        //    print("----")
+
             var output = "";
             for s in results {
                 let symbol = s as! ZBarSymbol
-            //    print(ZBarSymbol.nameForType(symbol.type))
-            //    print(symbol.data)
                 if (output == "") {
                     output = symbol.data
                 } else {

@@ -7,14 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE009EB31C04258400043F29 /* UncaughtExceptionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = BE009EB21C04258400043F29 /* UncaughtExceptionHandler.m */; };
 		BEDC03761C03D7B000099030 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDC03751C03D7B000099030 /* AppDelegate.swift */; };
 		BEDC03781C03D7B000099030 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDC03771C03D7B000099030 /* ViewController.swift */; };
 		BEDC037B1C03D7B000099030 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEDC03791C03D7B000099030 /* Main.storyboard */; };
 		BEDC037D1C03D7B000099030 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEDC037C1C03D7B000099030 /* Assets.xcassets */; };
 		BEDC03801C03D7B000099030 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEDC037E1C03D7B000099030 /* LaunchScreen.storyboard */; };
+		BEDC03891C03DE7800099030 /* Overview.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEDC03871C03DE7800099030 /* Overview.xib */; };
+		BEDC038A1C03DE7800099030 /* Overview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDC03881C03DE7800099030 /* Overview.swift */; };
+		FFB7D667F02CAF303B7A12F3 /* Pods_AssetScan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60EFF08C1884A51150E5E93A /* Pods_AssetScan.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C2954A2A510B53CB99BB364 /* Pods-AssetScan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssetScan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AssetScan/Pods-AssetScan.debug.xcconfig"; sourceTree = "<group>"; };
+		60EFF08C1884A51150E5E93A /* Pods_AssetScan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AssetScan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE009EB01C0424A500043F29 /* AssetScan-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AssetScan-Bridging-Header.h"; sourceTree = "<group>"; };
+		BE009EB11C0424A500043F29 /* UncaughtExceptionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UncaughtExceptionHandler.h; sourceTree = "<group>"; };
+		BE009EB21C04258400043F29 /* UncaughtExceptionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UncaughtExceptionHandler.m; sourceTree = "<group>"; };
 		BEDC03721C03D7B000099030 /* AssetScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AssetScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEDC03751C03D7B000099030 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEDC03771C03D7B000099030 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +31,9 @@
 		BEDC037C1C03D7B000099030 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEDC037F1C03D7B000099030 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BEDC03811C03D7B000099030 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEDC03871C03DE7800099030 /* Overview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Overview.xib; sourceTree = "<group>"; };
+		BEDC03881C03DE7800099030 /* Overview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Overview.swift; sourceTree = "<group>"; };
+		EDC34933CA2331CB1D7C3048 /* Pods-AssetScan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssetScan.release.xcconfig"; path = "Pods/Target Support Files/Pods-AssetScan/Pods-AssetScan.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFB7D667F02CAF303B7A12F3 /* Pods_AssetScan.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00EFB9E0CFDD725B07D737B8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5C2954A2A510B53CB99BB364 /* Pods-AssetScan.debug.xcconfig */,
+				EDC34933CA2331CB1D7C3048 /* Pods-AssetScan.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B126EAF713965A76DF4443AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				60EFF08C1884A51150E5E93A /* Pods_AssetScan.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BEDC03691C03D7B000099030 = {
 			isa = PBXGroup;
 			children = (
 				BEDC03741C03D7B000099030 /* AssetScan */,
 				BEDC03731C03D7B000099030 /* Products */,
+				00EFB9E0CFDD725B07D737B8 /* Pods */,
+				B126EAF713965A76DF4443AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +92,11 @@
 				BEDC037C1C03D7B000099030 /* Assets.xcassets */,
 				BEDC037E1C03D7B000099030 /* LaunchScreen.storyboard */,
 				BEDC03811C03D7B000099030 /* Info.plist */,
+				BEDC03871C03DE7800099030 /* Overview.xib */,
+				BEDC03881C03DE7800099030 /* Overview.swift */,
+				BE009EB11C0424A500043F29 /* UncaughtExceptionHandler.h */,
+				BE009EB21C04258400043F29 /* UncaughtExceptionHandler.m */,
+				BE009EB01C0424A500043F29 /* AssetScan-Bridging-Header.h */,
 			);
 			path = AssetScan;
 			sourceTree = "<group>";
@@ -71,9 +108,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BEDC03841C03D7B000099030 /* Build configuration list for PBXNativeTarget "AssetScan" */;
 			buildPhases = (
+				755AE0ED1BC65CFBE0E975CC /* Check Pods Manifest.lock */,
 				BEDC036E1C03D7B000099030 /* Sources */,
 				BEDC036F1C03D7B000099030 /* Frameworks */,
 				BEDC03701C03D7B000099030 /* Resources */,
+				476DAE1A3F12B319407A5AAA /* Embed Pods Frameworks */,
+				393BDCD23A68968C934CBCEF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -96,6 +136,7 @@
 				TargetAttributes = {
 					BEDC03711C03D7B000099030 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = G46D6BQD74;
 					};
 				};
 			};
@@ -122,6 +163,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEDC03891C03DE7800099030 /* Overview.xib in Resources */,
 				BEDC03801C03D7B000099030 /* LaunchScreen.storyboard in Resources */,
 				BEDC037D1C03D7B000099030 /* Assets.xcassets in Resources */,
 				BEDC037B1C03D7B000099030 /* Main.storyboard in Resources */,
@@ -130,11 +172,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		393BDCD23A68968C934CBCEF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AssetScan/Pods-AssetScan-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		476DAE1A3F12B319407A5AAA /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AssetScan/Pods-AssetScan-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		755AE0ED1BC65CFBE0E975CC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BEDC036E1C03D7B000099030 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEDC038A1C03DE7800099030 /* Overview.swift in Sources */,
+				BE009EB31C04258400043F29 /* UncaughtExceptionHandler.m in Sources */,
 				BEDC03781C03D7B000099030 /* ViewController.swift in Sources */,
 				BEDC03761C03D7B000099030 /* AppDelegate.swift in Sources */,
 			);
@@ -247,23 +339,32 @@
 		};
 		BEDC03851C03D7B000099030 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C2954A2A510B53CB99BB364 /* Pods-AssetScan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = AssetScan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.norganna.AssetScan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AssetScan/AssetScan-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		BEDC03861C03D7B000099030 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDC34933CA2331CB1D7C3048 /* Pods-AssetScan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = AssetScan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.norganna.AssetScan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AssetScan/AssetScan-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -286,6 +387,7 @@
 				BEDC03861C03D7B000099030 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

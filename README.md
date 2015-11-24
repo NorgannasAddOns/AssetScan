@@ -4,7 +4,7 @@ AssetScan is an iOS barcode scanning appliction that is designed (unlike most ot
 
 This software is not what you're looking for if you're after a UPC / EAN shopping information style appliction that finds what kind of food thing you just scanned at the shops.
 
-If however, you're looking for something that will scan QR, Code38, really long Code128's, Databar, or PDF417 serial / modeal codes off your boxes, laptops, desktops, monitors, keyboards or asset labels for entry into your favourite asset / inventory management system, then this is the right app for you.
+If however, you're looking for something that will scan QR, Code38, really long Code128's, Databar, or PDF417 serial / model codes off your boxes, laptops, desktops, monitors, keyboards or asset labels for entry into your favourite asset / inventory management system, then this is the right app for you.
 
 ## Compiling from code
 
